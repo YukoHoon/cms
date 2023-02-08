@@ -2,7 +2,7 @@
 
 namespace App\Helper;
 
-class DBHelper
+class DbHelper
 {
 
     var $db;
@@ -15,7 +15,7 @@ class DBHelper
             $this->db = new \PDO(
                 'mysql:host=localhost;dbname=cms',
                 'usuario-cms',
-                'introduce-tu-contrasena',
+                'JK3sun4t3rf4',
                 $opciones);
             $this->db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         } catch (\PDOException $e) {

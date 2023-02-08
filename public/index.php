@@ -4,7 +4,7 @@ namespace App;
 //Inicializo sesión para poder traspasar variables entre páginas
 session_start();
 
-//Incluyo los controladores que voy a utilizar para que seran cargados por Autoload
+//Incluyo los controladores que voy a utilizar para que sean cargados por Autoload
 use App\Controller\AppController;
 use App\Controller\NoticiaController;
 use App\Controller\UsuarioController;
@@ -13,7 +13,7 @@ use App\Controller\UsuarioController;
  * Asigno a sesión las rutas de las carpetas public y home, necesarias tanto para las rutas como para
  * poder enlazar imágenes y archivos css, js
  */
-$_SESSION['public'] = '/formacion/cms/public/';
+$_SESSION['public'] = '/cms/public/';
 $_SESSION['home'] = $_SESSION['public'].'index.php/';
 
 //Defino y llamo a la función que autocargará las clases cuando se instancien
@@ -34,7 +34,7 @@ function autoload($clase,$dir=null){
         if (is_dir($dir."/".$file) AND substr($file, 0, 1) !== '.'){
             autoload($clase, $dir."/".$file);
         }
-        //Si es un fichero y el nombr conicide con el de la clase
+        //Si es un fichero y el nombre coincide con el de la clase
         else if (is_file($dir."/".$file) AND $file == substr(strrchr($clase, "\\"), 1).".php"){
             require($dir."/".$file);
         }
