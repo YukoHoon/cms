@@ -52,12 +52,14 @@ class UsuarioController
 
             //Asigno resultado a una instancia del modelo
             $row = $rowset->fetch(\PDO::FETCH_OBJ);
-            $usuario = new Usuario($row);
+            if ($row!=null) {
+                $usuario = new Usuario($row);
+            }
 
             //Si existe el usuario
             if ($usuario){
                 //Compruebo la clave
-                if (password_verify($campo_clave,$usuario->clave)) {
+                if ($campo_clave === $usuario->clave) {
 
                     //Asigno el usuario y los permisos la sesión
                     $_SESSION["usuario"] = $usuario->usuario;
